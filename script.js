@@ -13,7 +13,8 @@ function lowerize(str){
 
 function game(playerSelection, computerSelection) {
     // to be not case-sensitive, let's convert the inputs to lower case
-    lowerize(playerSelection), lowerize(computerSelection);
+    playerSelection =  lowerize(playerSelection);
+    computerSelection =  lowerize(computerSelection);
 
     // handling draw case
     if (playerSelection === computerSelection) {
@@ -47,3 +48,11 @@ function game(playerSelection, computerSelection) {
 
 
 // testing the code out
+// function playRound(playerSelection, computerSelection) {
+//     return game(playerSelection, computerSelection);
+// }
+//
+// const playerSelection = "rock";
+// const computerSelection = getComputerChoice();
+// console.log(playRound(playerSelection, computerSelection));
+
