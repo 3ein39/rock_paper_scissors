@@ -11,7 +11,7 @@ function lowerize(str){
 }
 
 
-function game(playerSelection, computerSelection) {
+function game(playerSelection, computerSelection,result) {
     // to be not case-sensitive, let's convert the inputs to lower case
     playerSelection =  lowerize(playerSelection);
     computerSelection =  lowerize(computerSelection);
@@ -22,14 +22,17 @@ function game(playerSelection, computerSelection) {
     }
 
     if (playerSelection === "rock" && computerSelection === "scissors") {
+        result.num++;
         return `You won! ${playerSelection} beats ${computerSelection}`
     }
 
     if (playerSelection === "scissors" && computerSelection === "paper") {
+        result.num++;
         return `you won! ${playerSelection} beats ${computerSelection}`
     }
 
     if (playerSelection === "paper" && computerSelection === "rock") {
+        result.num++;
         return `you won! ${playerSelection} beats ${computerSelection}`
     }
 
@@ -48,11 +51,21 @@ function game(playerSelection, computerSelection) {
 
 
 // testing the code out
-// function playRound(playerSelection, computerSelection) {
-//     return game(playerSelection, computerSelection);
-// }
-//
-// const playerSelection = "rock";
-// const computerSelection = getComputerChoice();
-// console.log(playRound(playerSelection, computerSelection));
+function playRound() {
+    let result = {num: 0};
+    for (let i = 1; i <= 5; ++i) {
+        let playerSelection = window.prompt("Make your choice!: ");
+
+        let computerSelection = getComputerChoice();
+        console.log(`Round :${i}`, " : " , game(playerSelection, computerSelection, result));
+    }
+
+    if (result >= 3)
+        console.log("Congrats you won!\n");
+    else
+        console.log("Hmm, loser!\n")
+}
+
+playRound();
+
 
